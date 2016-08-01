@@ -52,6 +52,7 @@
                 }
                 s += s1 + '<br>';
             }
+            console.log(s)
             return s;
         }
 
@@ -74,9 +75,12 @@
             var solar = new this.SolarTerm();
             W = solar.getNearWinterSolstice(jd);
             for (var i = 0; i < 25; i++) A[i] = solar.getWinterSolstice(W + 15.2184 * i); //25个节气时刻(北京时间),从冬至开始到下一个冬至以后
+            console.log(A.length)
+            console.log(A)
             A.pe1 =  solar.getWinterSolstice(W - 15.2);
             //alert(A.pe1 + "=" + SSQ.calc(W - 15.2, '气') );
             A.pe2 = solar.getWinterSolstice(W - 30.4); //补算二气,确保一年中所有月份的“气”全部被计算在内
+            console.log(A)
 
             //今年"首朔"的日月黄经差w
             var lunar = new this.LunarPhase();
@@ -121,6 +125,7 @@
                 opt.leap = i;
                 for (; i < 14; i++) opt.ym[i]--;
             }
+            console.log(A)
 
             //名称转换(月建别名)
             for (var i = 0; i < 14; i++) {
@@ -138,6 +143,7 @@
 
                 opt.ym[i] = mc;
             }
+            console.log(opt)
             return opt;
         }
 
